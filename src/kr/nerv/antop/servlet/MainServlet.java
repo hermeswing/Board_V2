@@ -17,4 +17,11 @@ public class MainServlet {
 		logger.info("main() ");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/blank.do", method = RequestMethod.GET)
+	public ModelAndView blank(ModelAndView mav) {
+		mav.setViewName("common/blank");
+		logger.info("blank() ");
+		return mav;
+	}
 }

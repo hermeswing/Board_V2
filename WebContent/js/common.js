@@ -95,46 +95,6 @@ $.fn.parseByteUnit = function() {
 	}
 };
 
-$(function() {
-	$("#extruderLeft").buildMbExtruder({
-		position : "left",
-		width : 300,
-		extruderOpacity : .8,
-		hidePanelsOnClose : true,
-		accordionPanels : true,
-		onExtOpen : function() {
-		},
-		onExtContentLoad : function() {
-		},
-		onExtClose : function() {
-		}
-	});
-
-	$("#extruderLeft1").buildMbExtruder({
-		position : "left",
-		width : 300,
-		extruderOpacity : .8,
-		onExtOpen : function() {
-		},
-		onExtContentLoad : function() {
-		},
-		onExtClose : function() {
-		}
-	});
-
-	$("ul#topnav li").hover(function() { // Hover over event on list item
-		$(this).css({
-			'background' : '#1376c9 url(topnav_active.gif) repeat-x'
-		}); // Add background color + image on hovered list item
-		$(this).find("span").show(); // Show the subnav
-	}, function() { // on hover out...
-		$(this).css({
-			'background' : 'none'
-		}); // Ditch the background
-		$(this).find("span").hide(); // Hide the subnav
-	});
-});
-
 /**
  * hidden 폼 만들어서 submit
  * @param property

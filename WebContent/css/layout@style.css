@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* NHN > UIT Center > Open UI Technology Team > Jeong Chan Myeong(dece24@nhncorp.com) */
+
+/* Element Reset */
+body { margin:0; font-family:Tahoma, Sans-serif; font-size:.75em; background:#fff; color:#000;}
+address { font-style:normal;}
+hr{ display:none; position:absolute;}
+img,
+fieldset{ border:0;}
+
+/* Skip To Content */
+a.skipToContent{ display:block; position:relative; width:1px; height:1px; margin:0 0 -1px 0; clear:both; overflow:hidden; text-decoration:none;}
+a.skipToContent:hover,
+a.skipToContent:active,
+a.skipToContent:focus{ width:auto; height:auto; margin:0 0 10px 0; padding:5px;}
+
+/* Layout */
+#container{ margin:0 20px;}
+#header{ margin-bottom:2em; border-bottom:3px solid #000;}
+#body{ margin-bottom:30px;}
+#content{ margin-bottom:2em;}
+#footer{ border-top:1px solid #000;}
+
+/* Header Extension */
+#header .extension{ margin:1em 0;}
+#header .extension ul{ margin:0; padding:0; overflow:hidden;}
+#header .extension li{ left:-10px; border-left:1px solid #ccc; padding:0 5px 0 10px;}
+
+/* Footer Extension */
+#footer .extension{ margin:1em 0;}
+#footer .extension ul{ margin:0; padding:0; overflow:hidden;}
+#footer .extension li{ left:-10px; border-left:1px solid #ccc; padding:0 5px 0 10px;}
+#footer address{ margin:1em 0;}
+
+/* Body Extension */
+#body h2{ border-bottom:1px solid #000;}
+
+/* Class */
+.preview{ float:left; margin:0 1em 1em 0;}
+.layout{ list-style:none; margin:0; padding:0; text-indent:-10px;}
+.layout li{ display:inline; margin:0; padding:0 0 0 10px; border-left:1px solid #ccc;}
+.layout li:first-child{ border:0;}
+.layout li button { position:relative; border:0; padding:0; background:none; cursor:pointer; font-size:12px; overflow:visible; color:#66F;}
+.layout li button:hover,
+.layout li button:active,
+.layout li button:focus{ font-weight:bold; letter-spacing:-1px;} 

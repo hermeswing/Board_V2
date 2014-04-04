@@ -7,13 +7,17 @@
 <%@include file="common/header.jsp"%>
 <script type="text/javascript">
 $(function(){
-  $('#header .extension ul li a').click(function(){
-	  alert($(this).attr('href'));
-    $('#body').hide().load($(this).attr('href'),function(){
-      $('#body').show();
+    $('#header .extension ul li a').click(function(){
+      if( $(this).attr('href') == "/" ) {
+        parent.mainFrame.src = "/";
+      } else {
+        $('#body').hide().load( $(this).attr('href'), function() {
+          $('#body').show();
+        });
+        
+        return false;
+      }
     });
-    return false;
-  });
 });
 </script>
 </head>

@@ -5,9 +5,9 @@
     <hr />
     <div class="extension">
         <ul>
-            <li><a href="/main.do">Layout Sample</a></li>
+            <li><a href="/">Layout Sample</a></li>
             <li><a href="/blank.do">Blank</a></li>
-            <li>W3C Supporters Program</li>
+            <li><a href="/list.do">List</a></li>
             <li>Introduction to Web Site</li>
             <li>Search, Site Index, Keywords</li>
             <li>Mail Archive Search</li>

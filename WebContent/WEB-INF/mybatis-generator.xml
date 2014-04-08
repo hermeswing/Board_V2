@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="E:\workspace\board_v2\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16-bin.jar" />
+
+	<context id="context1">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://nerv.kr:3306/antop"
+			userId="antop" password="valentine" />
+
+		<javaModelGenerator targetPackage="kr.nerv.antop.entity.model" targetProject="board_v2" />
+
+		<sqlMapGenerator targetPackage="kr.nerv.antop.entity.xml" targetProject="board_v2" />
+
+		<javaClientGenerator targetPackage="kr.nerv.antop.entity.mapper" targetProject="board_v2"
+			type="XMLMAPPER" />
+
+		<table tableName="ab_board" domainObjectName="Board">
+			<generatedKey column="board_id" sqlStatement="MySql" />
+			<columnOverride column="write_date" property="created" />
+			<columnOverride column="modify_date" property="modified" />
+		</table>
+
+		<table tableName="ab_board_file" domainObjectName="Attach">
+			<generatedKey column="seq" sqlStatement="MySql" />
+			<columnOverride column="add_date" property="created" />
+			<columnOverride column="session_id" property="session" />
+			<columnOverride column="del_flag" property="delFlag" javaType="java.lang.Boolean" jdbcType="BIT" />
+		</table>
+
+		<table tableName="ab_Board_comment" domainObjectName="Comment">
+			<generatedKey column="comment_id" sqlStatement="MySql" />
+			<columnOverride column="write_date" property="created" />
+			<columnOverride column="modify_date" property="modified" />
+		</table>
+
+	</context>
+</generatorConfiguration>

@@ -4,22 +4,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="antop" uri="http://antop.nerv-team.co.kr/jstl"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- jquery -->
-<script src="js/jquery/jquery-1.6.2.js" type="text/javascript"></script>
-<script src="js/jquery/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
-<!-- css -->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/list.css" rel="stylesheet" type="text/css" />
-<link href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
-<!-- this -->
-<script src="js/list.js" type="text/javascript"></script>
+<script src="/js/list.js" type="text/javascript"></script>
 <script type="text/javascript">
-function show() {
-	alert($('#topnav li a').html());
+function pageNavi() {
+  if(args == "list") {
+	PageNavi.navigate("/list.do");
+  } else if(args == "write") {
+    PageNavi.navigate("/form.do?query=write");
+  }
 }
 </script>
 </head>
@@ -55,17 +49,17 @@ function show() {
                     <td align="center"><antop:bunho page="${page}" total="${total}" rowIdx="${stat.index}"
                             rowSize="${rowSize}" /></td>
                     <td><c:if test="${fn:length(b.attachs) > 0}">
-                            <img src="images/disk.png" class="icon" title="파일첨부 ${fn:length(b.attachs)}개">
+                            <img src="/images/disk.png" class="icon" title="파일첨부 ${fn:length(b.attachs)}개">
                         </c:if></td>
                     <td><c:if test="${b.security == true}">
-                            <img src="images/lock.png" class="icon" title="비밀글">
+                            <img src="/images/lock.png" class="icon" title="비밀글">
                         </c:if></td>
                     <td><c:if test="${b.dept > 0}">
                             <c:forEach begin="1" end="${b.dept}">
 						&nbsp;
 					</c:forEach>
                         </c:if> <c:if test="${b.dept > 0}">
-                            <img src="images/reply.png" class="icon">
+                            <img src="/images/reply.png" class="icon">
                         </c:if> <a href="view.do?bid=${b.boardId}&page=${page}&search=${search}"> <c:out value="${b.subject}"
                                 escapeXml="true" />
                     </a></td>
@@ -84,12 +78,12 @@ function show() {
     <form id="form" name="list.do" method="post">
         <div class="buttons">
             <input type=text name="search" value="${search}">
-            <button id="search-button" type="submit">검색</button>
+            <a id="search-button" href="submit">검색</a>
+            <!-- 
             <a id="write-button" href="form.do?query=write&page=${page}&search=${search}">쓰기</a>
-            <a id="list-button"  href="javascript:show();">목록</a>
-<!-- 
-            <a id="list-button"  href="list.do">목록</a>
--->
+             -->
+            <a id="write-button"  href="javascript:pageNavi('write')">쓰기</a>
+            <a id="list-button"  href="javascript:pageNavi('list')">목록</a>
         </div>
     </form>
 </div>

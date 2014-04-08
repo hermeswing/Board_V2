@@ -11,10 +11,7 @@ $(function(){
       if( $(this).attr('href') == "/" ) {
         parent.mainFrame.src = "/";
       } else {
-        $('#body').hide().load( $(this).attr('href'), function() {
-          $('#body').show();
-        });
-        
+        PageNavi.navigate($(this).attr('href'));
         return false;
       }
     });

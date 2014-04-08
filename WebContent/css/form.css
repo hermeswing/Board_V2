@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+#swfupload {
+	border: solid 1px #c0c0c0;
+	margin-top: 5px;
+}
+
+/* class */
+.link {
+	cursor: pointer;
+	color: #006699;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
+.swfupload-buttons {
+	border-bottom: solid 1px #c0c0c0;
+}
+
+.swfupload-queue {
+	width: 100%;
+	height: 200px;
+	padding-bottom: 20px;
+	overflow-y: auto;
+}
+
+.selectable .ui-selecting {
+	border-color: #F39814;
+}
+
+.selectable .ui-selected {
+	border-color: #F4A925;
+	border-width: 1px;
+}
+
+.selectable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.selectable li {
+	margin: 3px;
+	padding: 5px;
+}
+
+.selectable li #icon {
+	margin: 0 3px -3px -3px;
+}
+
+.selectable li #size {
+	margin-left: 5px;
+}
+
+.selectable li #seq {
+	display: none;
+}
+
+.selectable li #session {
+	display: none;
+}
+
+.selectable li #ext {
+	display: none;
+}
+
+.ui-progressbar {
+	clear: both;
+	margin-top: 3px;
+	height: 5px;
+	text-align: left;
+}
+
+.ui-progressbar .ui-progressbar-value {
+	margin: -1px;
+	height: 100%;
+}
+
+.kaptcha {
+	margin-top: 5px;
+	padding: 5px;
+	line-height: 200%;
+	border-top: 1px dashed #c0c0c0;
+}
+
+#kaptcha-img {
+	width: 200px;
+	height: 50px;
+	border: 1px solid #c0c0c0;
+	cursor: pointer;
+	margin-right: 5px;
+}

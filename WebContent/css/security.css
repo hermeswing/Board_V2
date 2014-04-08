@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+/* tag */
+
+/* id */
+
+#wrap {
+	width: 300px;
+	border: 1px solid #c0c0c0;
+	padding: 0px;
+}
+
+#msg {
+	text-align: center;
+	color: #ff0000
+}
+
+/* class */
+
+.label {
+	width: 70px;
+}
+
+.title {
+	font-weight: bold;
+	border-bottom: 1px solid #c0c0c0;
+	padding: 10px; 
+}
+
+.form {
+	padding: 3px;
+	text-align: center;	
+}
+
+.buttons {
+	text-align: right;
+	padding: 0px 3px 3px 3px;
+}

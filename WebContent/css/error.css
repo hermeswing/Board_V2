@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+/* tag */
+
+
+
+/* id */
+
+#wrap {
+	width: 700px;
+}
+
+#msg {
+	margin: 5px;
+	padding: 10px;
+	font-weight: bold;
+	text-align: center:
+	border-bottom: solid 1px #c0c0c0;
+}
+
+#more {
+	margin: 5px;
+	padding: 10px;
+	color:#006699;
+	cursor: pointer;
+}
+
+#more:hover {	/* 마우스가 위로 올라갔을 때 */
+	text-decoration: underline;
+}	
+
+#detail {
+	line-height: 150%;
+	display: none;
+	margin: 5px;
+	padding: 10px;
+	border-bottom: solid 1px #c0c0c0;	
+}
+
+#btns {
+	text-align: center;
+}
+/* class */
+

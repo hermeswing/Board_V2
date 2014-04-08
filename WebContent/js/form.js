@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// TinyMCE
 	$('textarea[name=content]').tinymce({
 		// Location of TinyMCE script
-		script_url : 'js/tiny_mce/tiny_mce.js',
+		script_url : '/js/tiny_mce/tiny_mce.js',
 		// General options
 		width: '100%',
 		height: '300',
@@ -18,19 +18,19 @@ $(document).ready(function() {
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_statusbar_location : "bottom",
 		// css
-		content_css : "css/style.css"
+		content_css : "/css/style.css"
 	});
 	
 	// swfupload 초기화
 	$('#swfupload').swfupload({
-		flash_url: 'js/swfupload/swfupload.swf',
-		upload_url: 'file/upload.do',
+		flash_url: '/js/swfupload/swfupload.swf',
+		upload_url: '/file/upload.do',
 		file_post_name: 'file',
 		file_size_limit : "5 MB",
 		debug: false,
 		
 		button_placeholder_id: 'folder-button',
-		button_image_url: 'images/open.png',
+		button_image_url: '/images/open.png',
 		button_width: 31,
 		button_height: 26,
 		button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
@@ -83,7 +83,7 @@ $(document).ready(function() {
 			
 			var icon = $('<img />', {
 				'id': 'icon',
-				'src': 'images/pending.png'
+				'src': '/images/pending.png'
 			});
 			var name = $('<span />', { 
 				id: 'name', 
@@ -122,7 +122,7 @@ $(document).ready(function() {
 		uploadStart: function(evt, file) {
 			var obj = $('#' + file.id);
 			// 진행중 이미지 변경
-			$('#icon', obj).attr('src', 'images/busy.gif');
+			$('#icon', obj).attr('src', '/images/busy.gif');
 			// 취소 버튼 활성화
 			$('#cancel-button').button('enable');
 		},
@@ -141,7 +141,7 @@ $(document).ready(function() {
 			
 			var obj = $('#' + file.id);
 			// 업로드 성공 이미지로 변경
-			$('#icon', obj).attr('src', 'images/success.png');
+			$('#icon', obj).attr('src', '/images/success.png');
 			// byte 용량을 단위 계산해서 출력
 			$('#size', obj).text('(' + $(file.size).parseByteUnit() + ')');
 			// seq, session 정보를 남긴다.
@@ -201,7 +201,7 @@ $(document).ready(function() {
 			
 			var obj = $('#' + file.id);
 			// 에러 아이콘으로 변경
-			$('#icon', obj).attr('src', 'images/error.png');
+			$('#icon', obj).attr('src', '/images/error.png');
 			// 에러 표시
 			obj.error(text);
 		},
@@ -248,7 +248,7 @@ $(document).ready(function() {
 				
 				// 이미 업로드가 된것 삭제
 				$.ajax({
-					url: 'file/unload.do',
+					url: '/file/unload.do',
 					type: 'POST',
 					cache: false,
 					data: {
@@ -258,7 +258,7 @@ $(document).ready(function() {
 					dataType: 'json',
 					context: $(this),
 					beforeSend: function() {
-						$('#icon', this).attr('src', 'images/loading.gif');
+						$('#icon', this).attr('src', '/images/loading.gif');
 					},
 					success: function(json, textStatus, jqXHR) {
 						if(json.success == true) {
@@ -312,9 +312,9 @@ $(document).ready(function() {
 				
 				var link;
 				if(isImage) {
-					link = '<img src="file/download.do?seq=' + seq + '" title="' + name + '" alt="' + name + '" />';
+					link = '<img src="/file/download.do?seq=' + seq + '" title="' + name + '" alt="' + name + '" />';
 				} else {
-					link = '<a href="file/download.do?seq=' + seq + '">' + name + '</a>';
+					link = '<a href="/file/download.do?seq=' + seq + '">' + name + '</a>';
 				}
 
 				// 본문에 삽입

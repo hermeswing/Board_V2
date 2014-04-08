@@ -1,3 +1,26 @@
+// 백스페이스 뒤로가기 막기
+if ( window.Prototype )
+{
+  Event.observe(document.documentElement, 'keydown', function()
+  {
+    var elem = Event.element(event);
+    //alert([elem.tagName, elem.isTextEdit]);
+    if ( event.keyCode == Event.KEY_BACKSPACE && ! elem.isTextEdit ) Event.stop(event);
+  });
+}
+
+var PageNavi = {
+    navigate : function() {
+      alert(arguments.length);
+      if(href.length == 0) {
+        PageNavi.navigate("/blank.do");
+      }
+      $('#body').hide().load( href, function() {
+        $('#body').show();
+      });
+    }
+}
+
 $.extend({
 	// alert 창 띄우기
 	dialog : function(title, msg, modal) {

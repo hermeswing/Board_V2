@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+/* tag */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+}
+
+table caption {
+	text-align: left;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+table thead tr {
+	border-bottom: solid 1px #c3c3c3;
+}
+
+table tbody tr {
+	border-bottom: 1px dashed #c3c3c3;
+	background-color: #ffffff;
+}
+
+table tbody tr:hover {
+	background-color: #f3f3f3;	
+}
+
+table th, table td {
+	height: 20px;
+	padding: 5px;	
+}
+
+select {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	width: 40px;
+}
+
+.search {
+	height: 22px;	
+}

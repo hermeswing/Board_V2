@@ -12,27 +12,20 @@
 	</c:otherwise>
 </c:choose>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- style -->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
-<link href="css/form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/form.css" />
 <!-- js -->
-<script type="text/javascript" src="js/jquery/jquery-1.6.2.js"></script>
-<script type="text/javascript" src="js/lib/json2.js"></script>
-<script type="text/javascript" src="js/jquery/jquery-ui-1.8.14.custom.min.js"></script>
+<script type="text/javascript" src="/js/lib/json2.js"></script>
 <!-- TinyMCE -->
-<script type="text/javascript" src="js/jquery/jquery.tinymce.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.tinymce.js"></script>
 <!-- swfupload -->
-<script type="text/javascript" src="js/jquery/jquery.swfupload.js"></script>
-<script type="text/javascript" src="js/swfupload/swfupload.js"></script>
-<script type="text/javascript" src="js/swfupload/swfupload.queue.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.swfupload.js"></script>
+<script type="text/javascript" src="/js/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="/js/swfupload/swfupload.queue.js"></script>
 <!-- form.js -->
-<script type="text/javascript" src="js/common.js""></script>
-<script type="text/javascript" src="js/form.js"></script>
+<script type="text/javascript" src="/js/form.js"></script>
 
 </head>
 <body>
@@ -110,7 +103,7 @@
 	</div>
 	
 	<div class="buttons">
-		<button id="write-button" type="submit">${submit}</button>
+		<a id="write-button" type="submit">${submit}</a>
 		<a id="list-button" href="list.do?page=${page}&search=${search}">목록</a>
 	</div>
 </div>

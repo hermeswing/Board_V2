@@ -9,10 +9,13 @@
 <script src="/js/list.js" type="text/javascript"></script>
 <script type="text/javascript">
 function pageNavi() {
+  var args = null;
   if(args == "list") {
-	PageNavi.navigate("/list.do");
+    args = { URI:"/list.do" };
+    PageNavigator.navigate(args);
   } else if(args == "write") {
-    PageNavi.navigate("/form.do?query=write");
+    args = { URI:"/form.do?query=write&page=${page}&search=${search}" };
+    PageNavigator.navigate(args);
   }
 }
 </script>

@@ -9,10 +9,10 @@
 $(function(){
     $('#header .extension ul li a').click(function(){
       if( $(this).attr('href') == "/" ) {
-        parent.mainFrame.src = "/";
+        mainFrame.src = "/";
       } else {
-        PageNavi.navigate($(this).attr('href'));
-        return false;
+    	var args = { URI:$(this).attr('href') };
+    	PageNavigator.navigate(args);
       }
     });
 });

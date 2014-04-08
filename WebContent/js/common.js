@@ -9,17 +9,18 @@ if ( window.Prototype )
   });
 }
 
-var PageNavi = {
-    navigate : function() {
-      alert(arguments.length);
-      if(href.length == 0) {
-        PageNavi.navigate("/blank.do");
-      }
-      $('#body').hide().load( href, function() {
-        $('#body').show();
-      });
+var PageNavigator = {
+  navigate : function(args) {
+    if(args.URI.length == 0) {
+  	  PageNavigator.navigate("/blank.do");
     }
-}
+    //$('#body').hide().load( args.URI, function() {
+    $('#body').hide().load( "/list.do", function() {
+      $('#body').show();
+      alert($('#body').html());
+    });
+  }
+};
 
 $.extend({
 	// alert 창 띄우기

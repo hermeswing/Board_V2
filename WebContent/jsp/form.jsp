@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <c:choose>
 	<c:when test="${query == 'modify'}">
 		<c:set var="submit" value="수정" />
@@ -11,9 +10,9 @@
 		<c:set var="submit" value="등록" />
 	</c:otherwise>
 </c:choose>
-
 <html>
 <head>
+<%@include file="common/header.jsp"%>
 <!-- style -->
 <link rel="stylesheet" type="text/css" href="/css/form.css" />
 <!-- js -->

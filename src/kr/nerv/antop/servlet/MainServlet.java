@@ -10,6 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainServlet {
 	// log4j
 	protected final Logger logger = Logger.getLogger(getClass());
+
+	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
+	public ModelAndView index(ModelAndView mav) {
+		mav.setViewName("index");
+		logger.info("index() ");
+		return mav;
+	}
 	
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public ModelAndView main(ModelAndView mav) {

@@ -5,7 +5,7 @@
     <display-name>Board_V2</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.do</welcome-file>
     </welcome-file-list>
 
     <!-- log4j -->

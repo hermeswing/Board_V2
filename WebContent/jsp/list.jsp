@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -6,14 +6,15 @@
 
 <html>
 <head>
+<%@include file="common/header.jsp"%>
 <script src="/js/list.js" type="text/javascript"></script>
 <script type="text/javascript">
-function pageNavi() {
+function pageNavi(p) {
   var args = null;
-  if(args == "list") {
+  if(p == "list") {
     args = { URI:"/list.do" };
     PageNavigator.navigate(args);
-  } else if(args == "write") {
+  } else if(p == "write") {
     args = { URI:"/form.do?query=write&page=${page}&search=${search}" };
     PageNavigator.navigate(args);
   }
@@ -82,9 +83,9 @@ function pageNavi() {
         <div class="buttons">
             <input type=text name="search" value="${search}">
             <a id="search-button" href="submit">검색</a>
-            <!-- 
+<!-- 
             <a id="write-button" href="form.do?query=write&page=${page}&search=${search}">쓰기</a>
-             -->
+ -->
             <a id="write-button"  href="javascript:pageNavi('write')">쓰기</a>
             <a id="list-button"  href="javascript:pageNavi('list')">목록</a>
         </div>

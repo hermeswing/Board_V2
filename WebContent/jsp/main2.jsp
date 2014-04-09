@@ -4,43 +4,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>::</title>
-<link rel="stylesheet" type="text/css" href="css/main.css" />
-<link rel="stylesheet" type="text/css" href="css/jquery.sliding_menu.css" />
-<script type="text/javascript" src="js/jquery-1.7.1.min.js" />
-<script type="text/javascript" src="js/jquery.sliding_menu.js" />
-<script type="text/javascript" src="js/lavalamp.js" />
-<script>
-    $(document).ready(function() {
-        $('#menu ul').sliding_menu_js({
-            header_title : 'Nombre sitio web!',
-            header_logo : "http://placehold.it/250x120"
-        });
-
+<%@include file="common/header.jsp"%>
+<script type="text/javascript">
+  $(function() {
+    $("#header .extension ul li a").click(function() {
+      var args = {
+        URI : $(this).attr('page')
+      };
+      PageNavigator.navigate(args);
     });
+  });
+
+  $(document).ready(function () {
+      var myIframe = document.getElementById("mainFrame");
+      if (myIframe) {
+        if (myIframe.contentDocument && myIframe.contentDocument.body.offsetHeight) {
+          // W3C DOM (and Mozilla) syntax
+          myIframe.height = myIframe.contentDocument.body.offsetHeight;
+        } else if (myIframe.Document && myIframe.Document.body.scrollHeight) {
+          // IE DOM syntax
+          myIframe.height = myIframe.Document.body.scrollHeight;
+        }
+      }
+  });
 </script>
 </head>
 <body>
-
-    <div id="framecontentTop">
-        <div id="wrapper">
-            <div class="lavalamp">
-                <ul>
-                    <li class="active"><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Portfolio</a></li>
-                    <li><a href="">Contacts</a></li>
-                    <li><a href="">Back to Article</a></li>
-                    <li><a href="">How it Works?</a></li>
-                </ul>
-                <div class="floatr"></div>
-            </div>
+    <div id="xe" class="hybrid">
+        <div id="container" class="ece">
+            <!-- Menu 시작 -->
+            <jsp:include page="common/top_menu.jsp"></jsp:include>
+            <!-- Menu 종료 -->
+            <hr />
+            <!-- Main 시작 -->
+            <iframe id="mainFrame" name="mainFrame" style="border: none; overflow: visible; width: 100%; height: 100%;" vspace="0"
+                hspace="0" marginwidth="0" marginheight="0" scrolling="auto" frameborder="0" src="/content1.htm"></iframe>
+            <!-- Main 종료 -->
+            <hr />
+            <!-- Bottom 시작 -->
+            <jsp:include page="common/footer.jsp"></jsp:include>
+            <!-- Bottom 종료 -->
         </div>
     </div>
-    <div id="maincontent"></div>
-    <div id="framecontentBottom">
-        <div class="innertube">Sample text here</div>
-    </div>
-    <div class="container"></div>
+</body>
 </html>

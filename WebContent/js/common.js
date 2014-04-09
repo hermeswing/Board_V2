@@ -14,10 +14,8 @@ var PageNavigator = {
     if(args.URI.length == 0) {
   	  PageNavigator.navigate("/blank.do");
     }
-    //$('#body').hide().load( args.URI, function() {
-    $('#body').hide().load( "/list.do", function() {
+    $('#body').hide().load( args.URI, function() {
       $('#body').show();
-      alert($('#body').html());
     });
   }
 };

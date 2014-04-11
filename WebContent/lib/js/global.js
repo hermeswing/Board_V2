@@ -1,8 +1,5 @@
-
 $(document).ready( initBookmarks );
-
 $(document).ready( initCollapsibleSections );
-
 
 function initBookmarks () {
   // Table of Contents links

@@ -14,6 +14,46 @@ TABLE.TOC {
     margin: 1em 0;
 }
 
+/*
+ *  TABLE OF CONTENTS (West-pane)
+ */
+.ui-layout-west .ui-layout-content {
+    padding: 1ex 0.5em 2em 22px; /* need left-padding for +/- buttons */
+}
+
+UL#TOC {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#TOC LI {
+    padding: 2px 0;
+}
+
+#TOC A {
+    color: #000;
+    display: block;
+    padding: 1px 0 2px 3px;
+}
+
+#TOC A:visited {
+    color: #000;
+}
+
+#TOC A:hover {
+    color: #000;
+    background-color: #FEC;
+    text-decoration: none;
+}
+
+#TOC LI UL {
+    list-style: none;
+    margin: 0;
+    margin-left: 1em;
+    padding: 0.25em 0;
+}
+
 .TOC TR.rTitle TD {
     font-size: 0.95em;
     font-weight: bold;
@@ -76,46 +116,6 @@ UL,OL {
 LI {
     padding-top: 2px;
     padding-bottom: 3px;
-}
-
-/*
- *  TABLE OF CONTENTS (West-pane)
- */
-.ui-layout-west .ui-layout-content {
-    padding: 1ex 0.5em 2em 22px; /* need left-padding for +/- buttons */
-}
-
-UL#TOC {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#TOC LI {
-    padding: 2px 0;
-}
-
-#TOC A {
-    color: #000;
-    display: block;
-    padding: 1px 0 2px 3px;
-}
-
-#TOC A:visited {
-    color: #000;
-}
-
-#TOC A:hover {
-    color: #000;
-    background-color: #FEC;
-    text-decoration: none;
-}
-
-#TOC LI UL {
-    list-style: none;
-    margin: 0;
-    margin-left: 1em;
-    padding: 0.25em 0;
 }
 
 #TOC LI UL LI {
@@ -194,12 +194,14 @@ SPAN.expander_closed {
     overflow: auto;
 }
 
+/*
 .ui-layout-center {
     background-color: #FFF;
     border: 1px solid #677;
     padding: 15px 2em 3em;
     overflow: auto;
 }
+*/
 
 /* inner divs inside Outer East/West panes */
 .header {

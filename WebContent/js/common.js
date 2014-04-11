@@ -9,14 +9,42 @@ if ( window.Prototype )
   });
 }
 
+// submit2({target: 'ehrTopFrame', action: '/main/jsp/logout.jsp'}, null);
 var PageNavigator = {
-  navigate : function(args) {
+  navigate : function(property, parameters) {
     if(args.URI.length == 0) {
   	  PageNavigator.navigate("/blank.do");
     }
-    $('#body').hide().load( args.URI, function() {
-      $('#body').show();
-    });
+    //{target: "contentsiFrame", action: $(this).attr('page')}
+    //var form = $("<form></form>").attr(property);
+    var form = $("contentsiFrame").attr("action", property.page);
+    $(form).attr("method", property.method || "post");// default method is post
+    var input, value;
+    for ( var name in parameters )
+    {
+      value = parameters[name];
+      if ( $.protify(["string", "number"]).include(typeof value) )
+      {
+        form.append($("<input>").attr({name: name, type: "hidden", value: value}));
+      }
+      else if ( typeof value == "array" )
+      {
+        value.each(function(v)
+        {
+          form.append($("<input>").attr({name: name, type: "hidden", value: v}));
+        });
+      }
+      else
+      {
+        input = $("<input>").attr({name: name, type: "hidden", value: value || ''});
+        form.append(input);
+      }
+    }
+    form.insertAfter(document.body);
+    form.submit();
+    form.remove();
+    form = null;
+    
   }
 };
 
@@ -153,4 +181,25 @@ function submit2(property, parameters)
   form.submit();
   form.remove();
   form = null;
-} 
+}
+
+window.attachEvent("onload", function() {
+  document.body.attachEvent("onkeydown", function() {
+    if(window.event.ctrlLeft && window.event.shiftLeft && window.event.altLeft) {
+      switch(window.event.keyCode) {
+        case 83:  // View Source
+          var wnd = window.open("about:blank", "_blank", "width=800px,height=600px,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes");
+          wnd.document.open("text/plain", "replace");
+          wnd.document.write(document.documentElement.outerHTML);
+          wnd.document.close();
+          wnd.focus();
+          window.event.returnValue = false;
+          break;
+        case 82:  // Reload
+          window.location.reload();
+          window.event.returnValue = false;
+          break;
+      }
+    }
+  });
+});

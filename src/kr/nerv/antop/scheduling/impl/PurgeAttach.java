@@ -48,8 +48,13 @@ public class PurgeAttach implements Scheduler {
 		// execute query
 		List<Attach> attachs = attachMapper.selectByExample(example);
 
+		System.out.println("첨부파일 갯수 :: " + attachs.size());
+		
 		File f = null;
 		for (Attach attach : attachs) {
+			System.out.println("context 실제 경로 :: " + context.getRealPath("/"));
+			System.out.println("첨부파일 경로 :: " + attach.getPath());
+			System.out.println("첨부파일 명 :: " + attach.getRealName());
 			// 업로드시에 업로드 했던 파일의 위치
 			f = new File(context.getRealPath("/") + attach.getPath() + "/" + attach.getRealName());
 			if (!f.exists()) { // 파일이 존재 하지 않느다면

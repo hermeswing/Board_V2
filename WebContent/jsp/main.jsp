@@ -1,177 +1,117 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>::</title>
-<%@include file="common/header.jsp"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>UI Layout Plug-in - Documentation</title>
+
+<link rel="stylesheet" href="/lib/css/global.css" type="text/css">
+<link rel="stylesheet" href="/lib/css/documentation.css" type="text/css">
+<!--[if lte IE 7]>
+    <style type="text/css"> body { font-size: 85%; } </style>
+<![endif]-->
+<style type="text/css">
+/**
+ *  Basic Layout Theme
+ */
+.ui-layout-pane { /* all 'panes' */
+    border: 1px solid #BBB;
+}
+
+.ui-layout-pane-center { /* IFRAME pane */
+    padding: 0;
+    margin: 0;
+}
+
+.ui-layout-pane-west { /* west pane */
+    padding: 0 10px;
+    background-color: #EEE !important;
+    overflow: auto;
+}
+
+.ui-layout-resizer { /* all 'resizer-bars' */
+    background: #DDD;
+}
+
+.ui-layout-resizer-open:hover { /* mouse-over */
+    background: #9D9;
+}
+
+.ui-layout-toggler { /* all 'toggler-buttons' */
+    background: #AAA;
+}
+
+.ui-layout-toggler-closed { /* closed toggler-button */
+    background: #CCC;
+    border-bottom: 1px solid #BBB;
+}
+
+.ui-layout-toggler .content { /* toggler-text */
+    font: 14px bold Verdana, Verdana, Arial, Helvetica, sans-serif;
+}
+
+.ui-layout-toggler:hover { /* mouse-over */
+    background: #DCA;
+}
+
+.ui-layout-toggler:hover .content { /* mouse-over */
+    color: #009;
+}
+
+/* masks are usually transparent - make them visible (must 'override' default) */
+.ui-layout-mask {
+    background: #C00 !important;
+    opacity: .20 !important;
+    filter: alpha(opacity =                   20) !important;
+}
+</style>
+
+<!-- REQUIRED scripts for layout widget -->
+<script type="text/javascript" src="/lib/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="/lib/js/jquery-ui-1.10.4.js"></script>
+<script type="text/javascript" src="/lib/js/jquery.layout-latest.js"></script>
+<script type="text/javascript" src="/lib/js/global.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+
 <script type="text/javascript">
-$(function(){
-    $('#header .extension ul li a').click(function(){
-      if( $(this).attr('href') == "/" ) {
-        parent.mainFrame.src = "/";
-      } else {
-        PageNavi.navigate($(this).attr('href'));
-        return false;
-      }
+  var myLayout; // a var is required because this page utilizes: myLayout.allowOverflow() method
+
+  $(document).ready(function() {
+    //$('#top_container').layout();
+
+    myLayout = $('body').layout({
+    //myLayout = $('body > #top_container').layout({
+      north__spacing_open : 0,
+      north__closable : false,
+      north__resizable : false,
+      west__size : 250,
+      west__spacing_closed : 20,
+      west__togglerLength_closed : 100,
+      west__togglerAlign_closed : "top",
+      west__togglerContent_closed : "M<BR>E<BR>N<BR>U",
+      west__togglerTip_closed : "Open & Pin Menu",
+      west__sliderTip : "Slide Open Menu",
+      west__slideTrigger_open : "mouseover",
+      center__maskContents : true,
+      //      south__initClosed : true,
+      south__spacing_closed : 0,
+      south__closable : false,
+      south__resizable : false
+    // IMPORTANT - enable iframe masking
     });
-});
+  });
 </script>
+
 </head>
 <body>
-    <div id="xe" class="hybrid">
-        <div id="container" class="ece">
-            <!-- Bottom 시작 -->
-            <jsp:include page="common/top_menu.jsp"></jsp:include>
-            <!-- Bottom 종료 -->
-            <hr />
-            <!-- Main 시작 -->
-            <div id="body" style="height: 600px;">
-                <div id="content">
-                    <h2>Content</h2>
-                    <div class="section">
-                        <h3>W3C Develops Web Standards and Guidelines</h3>
-                        <p>
-                            <img src="img/c.gif" width="200" height="150" id="preview" class="preview" alt="Dynamic Layout Preview" />W3C
-                            primarily pursues its mission through the creation of Web standards and guidelines. Since 1994, W3C has
-                            published more than 110 such standards, called W3C Recommendations. W3C also engages in education and
-                            outreach, develops software, and serves as an open forum for discussion about the Web. In order for the
-                            Web to reach its full potential, the most fundamental Web technologies must be compatible with one
-                            another and allow any hardware and software used to access the Web to work together. W3C refers to this
-                            goal as “Web interoperability.” By publishing open (non-proprietary) standards for Web languages and
-                            protocols, W3C seeks to avoid market fragmentation and thus Web fragmentation.
-                        </p>
-                        <p>Tim Berners-Lee and others created W3C as an industry consortium dedicated to building consensus
-                            around Web technologies. Mr. Berners-Lee, who invented the World Wide Web in 1989 while working at the
-                            European Organization for Nuclear Research (CERN), has served as the W3C Director since W3C was founded,
-                            in 1994.</p>
-                    </div>
-                    <div class="section">
-                        <ul class="layout">
-                            <li><button type="button" onclick="fixed(); c()" onmouseover="img_c()" onfocus="img_c()">FIXED
-                                    C</button></li>
-                            <li><button type="button" onclick="liquid(); c()" onmouseover="img_c()" onfocus="img_c()">LIQUID
-                                    C</button></li>
-                            <li><button type="button" onclick="hybrid(); c()" onmouseover="img_c()" onfocus="img_c()">HYBRID
-                                    C</button></li>
-                            <li><button type="button" onclick="fixed(); ce()" onmouseover="img_ce()" onfocus="img_ce()">FIXED
-                                    CE</button></li>
-                            <li><button type="button" onclick="fixed(); ec()" onmouseover="img_ec()" onfocus="img_ec()">FIXED
-                                    EC</button></li>
-                            <li><button type="button" onclick="liquid(); ce()" onmouseover="img_ce()" onfocus="img_ce()">LIQUID
-                                    CE</button></li>
-                            <li><button type="button" onclick="liquid(); ec()" onmouseover="img_ec()" onfocus="img_ec()">LIQUID
-                                    EC</button></li>
-                            <li><button type="button" onclick="hybrid(); ce()" onmouseover="img_ce()" onfocus="img_ce()">HYBRID
-                                    CE</button></li>
-                            <li><button type="button" onclick="hybrid(); ec()" onmouseover="img_ec()" onfocus="img_ec()">HYBRID
-                                    EC</button></li>
-                            <li><button type="button" onclick="fixed(); cee()" onmouseover="img_cee()" onfocus="img_cee()">FIXED
-                                    CEE</button></li>
-                            <li><button type="button" onclick="fixed(); ece()" onmouseover="img_ece()" onfocus="img_ece()">FIXED
-                                    ECE</button></li>
-                            <li><button type="button" onclick="fixed(); eec()" onmouseover="img_eec()" onfocus="img_eec()">FIXED
-                                    EEC</button></li>
-                            <li><button type="button" onclick="liquid(); cee()" onmouseover="img_cee()" onfocus="img_cee()">LIQUID
-                                    CEE</button></li>
-                            <li><button type="button" onclick="liquid(); ece()" onmouseover="img_ece()" onfocus="img_ece()">LIQUID
-                                    ECE</button></li>
-                            <li><button type="button" onclick="liquid(); eec()" onmouseover="img_eec()" onfocus="img_eec()">LIQUID
-                                    EEC</button></li>
-                            <li><button type="button" onclick="hybrid(); cee()" onmouseover="img_cee()" onfocus="img_cee()">HYBRID
-                                    CEE</button></li>
-                            <li><button type="button" onclick="hybrid(); ece()" onmouseover="img_ece()" onfocus="img_ece()">HYBRID
-                                    ECE</button></li>
-                            <li><button type="button" onclick="hybrid(); eec()" onmouseover="img_eec()" onfocus="img_eec()">HYBRID
-                                    EEC</button></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr />
-                <div class="extension e1">
-                    <div class="section">
-                        <h2>Extension 1</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h2>Extension 1</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h2>Extension 1</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                </div>
-                <hr />
-                <div class="extension e2">
-                    <div class="section">
-                        <h2>Extension 2</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h2>Extension 2</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h2>Extension 2</h2>
-                        <ul>
-                            <li>About W3C</li>
-                            <li>About W3C Membership</li>
-                            <li>W3C Supporters Program</li>
-                            <li>Introduction to Web Site</li>
-                            <li>Search, Site Index, Keywords</li>
-                            <li>Mail Archive Search</li>
-                            <li>FAQs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Main 종료 -->
-            <hr />
-            <!-- Bottom 시작 -->
-            <jsp:include page="common/footer.jsp"></jsp:include>
-            <!-- Bottom 종료 -->
-        </div>
+    <jsp:include page="common/top_menu.jsp"></jsp:include>
+    <jsp:include page="common/left_menu.jsp"></jsp:include>
+    <!-- Contents Start -->
+    <div id="mainContent" class="ui-layout-center content">
+        <iframe id="contentsiFrame" name="contentsiFrame" src="/jsp/Contents.html" style="width: 100%; height: 100%;"
+            frameBorder="0"></iframe>
     </div>
+    <jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 </html>

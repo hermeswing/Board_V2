@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -7,18 +7,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@include file="common/header.jsp"%>
 <!-- css -->
-<link href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/view.css" rel="stylesheet" type="text/css" />
-<!-- jquery -->
-<script type="text/javascript" src="js/jquery/jquery-1.6.2.js"></script>
-<script type="text/javascript" src="js/jquery/jquery-ui-1.8.14.custom.min.js"></script>
+<link rel="stylesheet" type="text/css"  href="/css/view.css" />
+r
 <!-- lightbox -->
-<link href="js/lightbox/css/lightbox.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/lightbox/lightbox.js"></script>
+<link rel="stylesheet" type="text/css" href="/js/lightbox/css/lightbox.css" />
+<script type="text/javascript" src="/js/lightbox/lightbox.js"></script>
 <!-- this -->
-<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="/js/view.js"></script>
 </head>
 <body>
 

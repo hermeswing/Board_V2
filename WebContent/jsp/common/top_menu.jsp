@@ -1,17 +1,9 @@
 <%@page language="java" contentType="text/html; charset=utf-8"%>
-<div id="header">
-    <a href="#content" class="skipToContent">Skip to content</a>
-    <h1>Header</h1>
-    <hr />
-    <div class="extension">
-        <ul>
-            <li><a href="/">Layout Sample</a></li>
-            <li><a href="/blank.do">Blank</a></li>
-            <li><a href="/list.do">List</a></li>
-            <li>Introduction to Web Site</li>
-            <li>Search, Site Index, Keywords</li>
-            <li>Mail Archive Search</li>
-            <li>FAQs</li>
-        </ul>
+    <!-- Menu 시작 -->
+    <div class="ui-layout-north">
+        <DIV id="logo">시작합니다.</DIV>
+        <DIV id="navigation">
+            <A page="/" istop="Y">HOME</A> <A page="blank.do">Blank</A> <A page="main.do" istop="Y">Main</A> <A page="list.do">BBS</A>
+        </DIV>
     </div>
-</div>
+    <!-- Menu 종료 -->

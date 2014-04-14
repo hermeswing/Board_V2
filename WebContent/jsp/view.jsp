@@ -16,6 +16,44 @@ r
 <script type="text/javascript" src="/js/lightbox/lightbox.js"></script>
 <!-- this -->
 <script type="text/javascript" src="/js/view.js"></script>
+<script type="text/javascript">
+  function pageNavi(p) {
+    var args = null;
+    if (p == "list") {
+      PageNavigator.navigate({
+        action : "/list.do" // list.do?page=${page}&search=${search}
+      }, {
+        page : "${page}",
+        search : "${search}"
+      });
+    } else if (p == "reply") {
+      PageNavigator.navigate({
+        action : "/form.do"  // form.do?query=reply&bid=${board.boardId}&page=${page}&search=${search}"
+      }, {
+        bid : arguments[1],
+        page : "${page}",
+        search : "${search}"
+      });
+    } else if (p == "modify") {
+      PageNavigator.navigate({
+        action : "/form.do"  // form.do?query=modify&bid=${board.boardId}&page=${page}&search=${search}"
+      }, {
+        query : "modify",
+        bid : arguments[1],
+        page : "${page}",
+        search : "${search}"
+      });
+    } else if (p == "delete") {
+      PageNavigator.navigate({
+        action : "/delete.do"  // ?bid=${board.boardId}&page=${page}&search=${search}
+      }, {
+        bid : arguments[1],
+        page : "${page}",
+        search : "${search}"
+      });
+    }
+  }
+</script>
 </head>
 <body>
 
@@ -59,10 +97,10 @@ r
 	</c:if>
 	<!-- 버튼 -->
 	<div class="buttons">
-		<a id="reply-button" href="form.do?query=reply&bid=${board.boardId}&page=${page}&search=${search}">답변</a>
-		<a id="modify-button" href="form.do?query=modify&bid=${board.boardId}&page=${page}&search=${search}">수정</a>
-		<a id="delete-button" href="delete.do?bid=${board.boardId}&page=${page}&search=${search}">삭제</a>
-		<a id="list-button" href="list.do?page=${page}&search=${search}" class='button'>목록</a>
+		<a id="reply-button" href="javascript:pageNavi('reply', '${board.boardId}')>답변</a>
+		<a id="modify-button" href="javascript:pageNavi('modify', '${board.boardId}')>수정</a>
+		<a id="delete-button" href="javascript:pageNavi('delete', '${board.boardId}')">삭제</a>
+		<a id="list-button" href="javascript:pageNavi('list')" class='button'>목록</a>
 	</div>
 </div>
 

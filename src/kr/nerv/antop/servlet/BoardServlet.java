@@ -51,8 +51,7 @@ public class BoardServlet {
 		binder.registerCustomEditor(Integer.class, new CustomNumberEditor(Integer.class, true));
 	}
 
-//	@RequestMapping(value = "/list.do", method = RequestMethod.POST)
-	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/list.do", method = {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView list(ModelAndView mav, @RequestParam(required = false) Integer page,
 			@RequestParam(required = false) String search) {
 
@@ -71,7 +70,7 @@ public class BoardServlet {
 		return mav.addAllObjects(map);
 	}
 
-	@RequestMapping(value = "/view.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/view.do", method = RequestMethod.POST)
 	public ModelAndView view(ModelAndView mav, HttpServletRequest request,
 			HttpServletResponse response, @RequestParam(required = false) Integer page,
 			@RequestParam(value = "bid") int boardId, @RequestParam(required = false) String search) {
@@ -102,7 +101,7 @@ public class BoardServlet {
 		return mav.addAllObjects(map);
 	}
 
-	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete.do", method = RequestMethod.POST)
 	public ModelAndView delete(ModelAndView mav, HttpServletRequest request,
 			@RequestParam(value = "bid") Integer boardId,
 			@RequestParam(required = false) Integer page,
@@ -124,7 +123,7 @@ public class BoardServlet {
 		return mav;
 	}
 
-	@RequestMapping(value = "/form.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/form.do", method = RequestMethod.POST)
 	public ModelAndView form(HttpServletRequest request, HttpServletResponse response,
 			ModelAndView mav, @RequestParam String query,
 			@RequestParam(defaultValue = "1") int page,

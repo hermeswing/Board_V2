@@ -63,7 +63,7 @@
 .ui-layout-mask {
     background: #C00 !important;
     opacity: .20 !important;
-    filter: alpha(opacity =               20) !important;
+    filter: alpha(opacity =                   20) !important;
 }
 </style>
 
@@ -78,9 +78,11 @@
   var myLayout; // a var is required because this page utilizes: myLayout.allowOverflow() method
 
   $(document).ready(function() {
+    //$('#top_container').layout();
 
     myLayout = $('body').layout({
-      north__spacing_open : -1,
+    //myLayout = $('body > #top_container').layout({
+      north__spacing_open : 0,
       north__closable : false,
       north__resizable : false,
       west__size : 250,
@@ -93,17 +95,10 @@
       west__slideTrigger_open : "mouseover",
       center__maskContents : true,
       //      south__initClosed : true,
-      south__maxSize : 200,
-      south__spacing_closed : -1,
+      south__spacing_closed : 0,
       south__closable : false,
       south__resizable : false
     // IMPORTANT - enable iframe masking
-    });
-  });
-
-  $(function() {
-    $(".ui-layout-north a").click(function() {
-      PageNavigator.navigate($(this), null);
     });
   });
 </script>
@@ -114,7 +109,8 @@
     <jsp:include page="common/left_menu.jsp"></jsp:include>
     <!-- Contents Start -->
     <div id="mainContent" class="ui-layout-center content">
-        <iframe id="contentsiFrame" name="contentsiFrame" src="/jsp/Contents.html" style="width: 100%; height: 100%;" frameBorder="0"></iframe>
+        <iframe id="contentsiFrame" name="contentsiFrame" src="/jsp/Contents.html" style="width: 100%; height: 100%;"
+            frameBorder="0"></iframe>
     </div>
     <jsp:include page="common/footer.jsp"></jsp:include>
 </body>

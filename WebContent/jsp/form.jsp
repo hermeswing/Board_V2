@@ -27,11 +27,10 @@
 <script type="text/javascript" src="/js/form.js"></script>
 <script type="text/javascript">
   function pageNavi(p) {
-    var args = null;
     if (p == "list") {
       PageNavigator.navigate({
         action : "/list.do"
-      },  {
+      }, {
         page : "${page}",
         search : "${search}"
       });
@@ -112,7 +111,8 @@
             </div>
 
             <div class="buttons">
-                <a id="write-button" href="javascript:pageNavi('write')">${submit}</a> <a id="list-button" href="javascript:pageNavi('list')">목록</a>
+                <a id="write-button" href="javascript:pageNavi('write')">${submit}</a> <a id="list-button"
+                    href="javascript:pageNavi('list')">목록</a>
             </div>
         </div>
 

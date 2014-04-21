@@ -14,21 +14,26 @@
 		<c:set var="action" value="form.do" />	
 	</c:otherwise>
 </c:choose>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@include file="common/header.jsp"%>
 <!-- css -->
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/security.css" rel="stylesheet" type="text/css" />
-<link href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
-<!-- jquery -->
-<script src="js/jquery/jquery-1.6.2.js" type="text/javascript"></script>
-<script src="js/jquery/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/css/security.css" />
 <!-- this -->
-<script src="js/common.js" type="text/javascript"></script>
-<script src="js/secret.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/secret.js"></script>
+<script type="text/javascript">
+  function pageNavi(p) {
+    if (p == "list") {
+      PageNavigator.navigate({
+        action : "/list.do"
+      }, {
+        page : "${page}",
+        search : "${search}"
+      });
+    }
+  }
+</script>
 </head>
 <body>
 
@@ -48,7 +53,7 @@
 		<span class="buttons">
 			<button id="submit-button" type="button">확인</button>
 			<button id="cancel-button" type="button">취소</button>
-			<a id="list-button" href="list.do?page=${page}&search=${search}">목록</a>
+            <a id="list-button" href="javascript:pageNavi('list')">목록</a>
 		</span>
 	</div>
 	

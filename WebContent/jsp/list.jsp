@@ -10,7 +10,6 @@
 <script src="/js/list.js" type="text/javascript"></script>
 <script type="text/javascript">
   function pageNavi(p) {
-    var args = null;
     if (p == "list") {
       PageNavigator.navigate({
         action : "/list.do"
